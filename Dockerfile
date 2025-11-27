@@ -14,16 +14,19 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 # 4. Copia el backend de Laravel al contenedor
 COPY backend/ /var/www/html/
 
-# 5. Da permisos al usuario www-data
+# 5. Copia Angular compilado (si ya hiciste ng build)
+COPY backend/public/ /var/www/html/public/
+
+# 6. Da permisos al usuario www-data
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html/storage /var/www/html/bootstrap/cache
 
-# 6. Configura Apache para apuntar a la carpeta 'public'
-RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf \
-    && a2enmod rewrite
+# 7. Configura Apache para servir desde public/
+RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
+RUN a2enmod rewrite
 
-# 7. Expone el puerto 10000 para Render
-EXPOSE 10000
+# 8. Exponer el puerto que Render detecta automáticamente
+EXPOSE 80
 
-# 8. Comando para iniciar Apache
+# 9. Comando para iniciar Apache
 CMD ["apache2-foreground"]

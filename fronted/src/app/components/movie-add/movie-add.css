@@ -1,0 +1,91 @@
+.movie-form {
+  background-color: #ffe6f0;      /* Fondo rosa claro */
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 500px;               /* Limita el ancho */
+  margin: 40px auto;              /* Centrado horizontal y separación vertical */
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-form h2 {
+  text-align: center;
+  color: #ff1493;                 /* Título rosa fuerte */
+  margin-bottom: 20px;
+}
+
+.movie-form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.movie-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.movie-form input,
+.movie-form textarea {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.movie-form textarea {
+  resize: vertical;               /* Permite cambiar altura */
+  min-height: 80px;
+}
+
+.movie-form .form-buttons {
+  display: flex;
+  justify-content: center;        /* Centra los botones */
+  gap: 15px;                      /* Espacio entre botones */
+  margin-top: 20px;
+}
+
+.movie-form button {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.movie-form button[type="submit"] {
+  background-color: #ff69b4;      /* Rosa para Agregar */
+  color: #fff;
+}
+
+.movie-form button[type="submit"]:hover {
+  background-color: #ff85c1;
+}
+
+.movie-form button[type="button"] {
+  background-color: #ccc;         /* Gris para Cancelar */
+}
+
+.movie-form button[type="button"]:hover {
+  background-color: #bbb;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .movie-form {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .movie-form button {
+    width: 100%;                   /* Botones en móvil ocupan todo el ancho */
+  }
+
+  .movie-form .form-buttons {
+    flex-direction: column;
+  }
+}

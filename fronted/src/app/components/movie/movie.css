@@ -1,0 +1,70 @@
+/* Card principal */
+.card {
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+/* Header de la card */
+.card-header {
+  background: linear-gradient(to right, #6a11cb, #2575fc); /* degradado atractivo */
+  color: #d6cdcd;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Imagen de la película */
+.card-body img {
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Detalles de la película */
+.card-body p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Trailer responsive */
+.card-body iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Botones */
+.card-body .btn {
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-warning:hover {
+  background-color: #e6a23c;
+}
+
+.btn-danger:hover {
+  background-color: #d9534f;
+}
+
+.btn-secondary:hover {
+  background-color: #6c757d;
+}
+
+/* Responsive general */
+@media (max-width: 768px) {
+  .card-body iframe {
+    height: 200px; /* Trailer más pequeño en móvil */
+  }
+  .card-header h2 {
+    font-size: 1.3rem;
+  }
+}

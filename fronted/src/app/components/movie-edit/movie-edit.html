@@ -1,0 +1,72 @@
+<div class="page-container">
+<div class="form-container">
+  <h3>Editar Película</h3>
+  <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+    <!-- Título -->
+    <div class="mb-3">
+      <label for="title">Título</label>
+      <input id="title" type="text" formControlName="title" class="form-control" required>
+    </div>
+
+    <!-- Sinopsis -->
+    <div class="mb-3">
+      <label for="synopsis">Sinopsis</label>
+      <textarea id="synopsis" formControlName="synopsis" class="form-control"></textarea>
+    </div>
+
+    
+ 
+      <!-- Input para subir nueva portada -->
+<div class="mb-3">
+  <label for="cover">Cambiar portada</label>
+  <input id="cover" type="file" (change)="onFileSelected($event)" class="form-control">
+</div>
+<!-- Imagen de portada -->
+    <div class="mb-3 preview">
+      <label>Portada</label>
+      <img
+        *ngIf="previewImage"
+        [src]="previewImage"
+        alt="Cover"
+        style="max-width: 200px; max-height: 300px;"
+      />
+
+    </div>
+
+    <!-- Año -->
+    <div class="mb-3">
+      <label for="year">Año</label>
+      <input id="year" type="number" formControlName="year" class="form-control">
+    </div>
+
+    <!-- Director -->
+    <div class="mb-3">
+      <label for="director">Director</label>
+      <input id="director" type="text" formControlName="director" class="form-control">
+    </div>
+
+    <!-- Trailer URL -->
+<div class="mb-3">
+  <label for="trailer_url">URL del Trailer</label>
+  <input id="trailer_url" type="text" formControlName="trailer_url" class="form-control">
+</div>
+
+<div class="mt-3 trailer-preview" *ngIf="movieForm.value.trailer_url">
+  <iframe width="560" height="315"
+          [src]="getEmbedUrl(movieForm.value.trailer_url)"
+          frameborder="0"
+          allowfullscreen>
+  </iframe>
+</div>
+
+
+    <!-- Botones -->
+    <div class="mt-3">
+      <button type="submit" class="btn btn-primary" [disabled]="movieForm.invalid">Guardar Cambios</button>
+      <button type="button" class="btn btn-secondary ms-2" (click)="cancel()">Cancelar</button>
+
+    </div>
+  </form>
+</div>
+</div>
+

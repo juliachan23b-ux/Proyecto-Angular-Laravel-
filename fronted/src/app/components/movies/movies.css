@@ -1,0 +1,100 @@
+/* Tabla principal */
+.table-responsive {
+  background: #fdf6fb; /* Rosa muy suave */
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.table th {
+  background: linear-gradient(to right, #ff9ad5, #ff70b3); /* Degradado atractivo */
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* Hover en filas */
+.table-hover tbody tr:hover {
+  background-color: #ffe6f0; /* Rosa claro al pasar mouse */
+  transform: scale(1.02);
+  transition: all 0.2s;
+}
+
+/* Portadas */
+.table img {
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+.table img:hover {
+  transform: scale(1.05);
+}
+
+/* Botones */
+.btn-info {
+  background-color: #6bcfff;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-info:hover {
+  background-color: #33bfff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn-warning {
+  background-color: #ffc966;
+  border: none;
+}
+
+.btn-warning:hover {
+  background-color: #ffaa33;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn-danger {
+  background-color: #ff6b6b;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #ff3b3b;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn-success {
+  background-color: #6bff95;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #33ff6b;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Paginación */
+.pagination .page-item .page-link {
+  color: #ff1493;
+  font-weight: bold;
+  border-radius: 50%;
+  margin: 0 5px;
+  transition: 0.2s;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #ff1493;
+  color: #fff;
+  border: none;
+}
+
+.pagination .page-item .page-link:hover {
+  background-color: #ff85c1;
+  color: #fff;
+}

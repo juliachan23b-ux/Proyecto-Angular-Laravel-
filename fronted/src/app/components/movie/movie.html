@@ -1,0 +1,35 @@
+<div *ngIf="movie" class="container mt-5">
+  <div class="card shadow-lg rounded-4 overflow-hidden">
+    <div class="row g-0">
+      <!-- Portada de la película -->
+      <div class="col-md-4 text-center p-3 bg-light d-flex align-items-center justify-content-center">
+        <img *ngIf="movie.cover" 
+             [src]="'http://127.0.0.1:8000/' + movie.cover" 
+             alt="{{ movie.title }}" 
+             class="img-fluid rounded shadow-sm"
+             style="max-height: 400px;">
+      </div>
+
+      <!-- Detalles y trailer -->
+      <div class="col-md-8 p-4">
+        <h2 class="fw-bold mb-3 text-primary">{{ movie.title }}</h2>
+
+        <p><strong>Director:</strong> {{ movie.director }}</p>
+        <p><strong>Año:</strong> {{ movie.year }}</p>
+        <p><strong>Sinopsis:</strong> {{ movie.synopsis }}</p>
+
+        <!-- Trailer embebido responsive -->
+        <div class="ratio ratio-16x9 mt-3" *ngIf="movie.trailer_url">
+          <iframe [src]="getEmbedUrl(movie.trailer_url)" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <!-- Botones -->
+        <div class="mt-4 d-flex flex-wrap gap-2">
+          <button class="btn btn-warning flex-grow-1 flex-md-auto" (click)="editMovie(movie.id)">Editar</button>
+          <button class="btn btn-danger flex-grow-1 flex-md-auto" (click)="deleteMovie(movie.id)">Eliminar</button>
+          <a routerLink="/movies" class="btn btn-secondary flex-grow-1 flex-md-auto">Regresar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

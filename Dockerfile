@@ -10,17 +10,18 @@ RUN apt-get update && apt-get install -y \
 # Instalar Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Copiar el backend
+# Copiar backend
 COPY backend/ /app/
 
 # Instalar dependencias de Laravel
 RUN composer install --no-dev --optimize-autoloader
 
-# Configurar permisos
+# Permisos
 RUN chmod -R 755 /app/storage /app/bootstrap/cache
 
 # Exponer puerto
 EXPOSE 8080
 
-# Iniciar Laravel desde public/
+# Servir Laravel desde public/
 CMD ["php", "-S", "0.0.0.0:8080", "-t", "public"]
+

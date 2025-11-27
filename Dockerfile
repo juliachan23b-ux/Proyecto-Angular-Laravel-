@@ -1,5 +1,5 @@
-# 1. Imagen base de PHP con Apache
-FROM php:8.2-apache
+# 1. Imagen base de PHP CLI (sin Apache)
+FROM php:8.2-cli
 
 # 2. Instala extensiones necesarias para Laravel
 RUN apt-get update && apt-get install -y \
